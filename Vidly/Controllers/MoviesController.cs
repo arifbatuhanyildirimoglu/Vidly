@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using Vidly.Models;
 
 namespace Vidly.Controllers
@@ -11,6 +12,22 @@ namespace Vidly.Controllers
 			var movie = new Movie() { Name = "Shrek!" };
 
 			return View(movie);
+		}
+
+		public ActionResult Edit(int id)
+		{
+			return Content("id=" + id);
+		}
+
+		public ActionResult Index(int? pageIndex, string sortBy)
+		{
+			if (!pageIndex.HasValue)
+				pageIndex = 1;
+
+			if (String.IsNullOrEmpty(sortBy))
+				sortBy = "Name";
+
+			return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
 		}
 	}
 }
