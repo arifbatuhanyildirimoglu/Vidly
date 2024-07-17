@@ -228,6 +228,10 @@
     <Compile Include="Migrations\202407161231215_AddRelationshipsToMovies.Designer.cs">
       <DependentUpon>202407161231215_AddRelationshipsToMovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202407171901429_AddedRequiredConstToMovie.cs" />
+    <Compile Include="Migrations\202407171901429_AddedRequiredConstToMovie.Designer.cs">
+      <DependentUpon>202407171901429_AddedRequiredConstToMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -393,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202407161231215_AddRelationshipsToMovies.resx">
       <DependentUpon>202407161231215_AddRelationshipsToMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407171901429_AddedRequiredConstToMovie.resx">
+      <DependentUpon>202407171901429_AddedRequiredConstToMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

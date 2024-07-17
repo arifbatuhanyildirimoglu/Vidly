@@ -7,9 +7,11 @@ namespace Vidly.Models
 	{
 		public int Id { get; set; }
 
+		[Required]
 		public string Name { get; set; }
 
 		[Display(Name = "Release Date")]
+		[Required]
 		public DateTime ReleaseDate { get; set; }
 
 		public DateTime DateAdded { get; set; }
