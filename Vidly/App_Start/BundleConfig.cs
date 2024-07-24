@@ -19,7 +19,8 @@ namespace Vidly
 									"~/Scripts/modernizr-*"));
 
 			bundles.Add(new Bundle("~/bundles/bootstrap").Include(
-								"~/Scripts/bootstrap.js"));
+								"~/Scripts/bootstrap.js",
+								"~/Scripts/bootbox.js"));
 
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 								"~/Content/bootstrap-lumen.css",
