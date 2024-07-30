@@ -306,6 +306,10 @@
     <Compile Include="Migrations\202407300706042_AddRentalModel.Designer.cs">
       <DependentUpon>202407300706042_AddRentalModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202407300736198_UpdateMovieModel.cs" />
+    <Compile Include="Migrations\202407300736198_UpdateMovieModel.Designer.cs">
+      <DependentUpon>202407300736198_UpdateMovieModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AddPhoneNumberViewModel.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -685,6 +689,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202407300706042_AddRentalModel.resx">
       <DependentUpon>202407300706042_AddRentalModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407300736198_UpdateMovieModel.resx">
+      <DependentUpon>202407300736198_UpdateMovieModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
