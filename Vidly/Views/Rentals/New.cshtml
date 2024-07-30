@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "New Rental Form";
+  ViewBag.Title = "New Rental Form";
 }
 
 <h2>New Rental Form</h2>
@@ -8,13 +8,68 @@
 <form>
   <div class="form-group">
     <label>Customer</label>
-    <input type="text" value="" class="form-control" />
+    <input id="customer" type="text" value="" class="form-control" />
   </div>
 
   <div class="form-group">
     <label>Movie</label>
-    <input type="text" value="" class="form-control" />
+    <input id="movie" type="text" value="" class="form-control" />
   </div>
+
+  <ul id="movies" class="list-group"></ul>
 
   <button class="btn btn-primary">Submit</button>
 </form>
+@section scripts {
+  <script>
+    $(document).ready(function () {
+      var vm = {
+        movieIds: []
+      };
+
+      var customers = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        remote: {
+          url: '/api/customers?query=%QUERY',
+          wildcard: '%QUERY'
+        }
+      });
+
+      var movies = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        remote: {
+          url: '/api/movies?query=%QUERY',
+          wildcard: '%QUERY'
+        }
+      });
+
+      $('#customer').typeahead({
+        minLength: 3,
+        highlight: true
+      }, {
+        name: 'customers',
+        display: 'name',
+        source: customers
+      }).on("typeahead:select", function (e, customer) {
+        vm.customerId = customer.id;
+      });
+
+      $('#movie').typeahead({
+        minLength: 3,
+        highlight: true
+      }, {
+        name: 'movies',
+        display: 'name',
+        source: movies
+      }).on("typeahead:select", function (e, movie) {
+        $("#movies").append("<li>" + movie.name + "</li>");
+
+        $("#movie").typeahead("val", "");
+
+        $vm.movieIds.push(movie.id);
+      });
+    });
+  </script>
+}
